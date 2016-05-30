@@ -5,12 +5,11 @@ import java.math.BigDecimal;
 public class Item {
     private BigDecimal cost;
     private Integer offerCount;
-    private Integer count;
+    private Integer count = new Integer("0");
 
     public Item(BigDecimal cost, Integer offerCount) {
         this.cost = cost;
         this.offerCount = offerCount;
-        this.count = new Integer("0");
     }
 
     public BigDecimal registerItemAndGetCost() {
