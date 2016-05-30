@@ -2,21 +2,21 @@ package ddct;
 
 import java.math.BigDecimal;
 
-public enum Item {
-    APPLE(new BigDecimal("0.60")),
-    ORANGE(new BigDecimal("0.25"));
-
+public class Item {
     private BigDecimal cost;
+    private Integer offerCount;
+    private Integer count;
 
-    Item(BigDecimal cost) {
+    public Item(BigDecimal cost, Integer offerCount) {
         this.cost = cost;
+        this.offerCount = offerCount;
+        this.count = new Integer("0");
     }
 
-    public BigDecimal getCost() {
-        return this.cost;
+    public BigDecimal registerItemAndGetCost() {
+        // count the number of items
+        count++;
+        return (count % offerCount == 0) ? BigDecimal.ZERO: this.cost;
     }
 
-    public static Item getItem(String name) {
-        return Item.valueOf(name.toUpperCase());
-    }
 }

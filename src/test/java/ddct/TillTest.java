@@ -33,9 +33,57 @@ public class TillTest {
     }
 
     @Test
+    public void testCalculateTotalCost_2xapple() throws Exception {
+        input = Arrays.asList("apple","apple");
+        assertEquals(new BigDecimal("0.60"),till.calculateTotalCost(input));
+    }
+
+    @Test
+    public void testCalculateTotalCost_3xapple() throws Exception {
+        input = Arrays.asList("apple","apple","apple");
+        assertEquals(new BigDecimal("1.20"),till.calculateTotalCost(input));
+    }
+
+    @Test
+    public void testCalculateTotalCost_4xapple() throws Exception {
+        input = Arrays.asList("apple","apple","apple","apple");
+        assertEquals(new BigDecimal("1.20"),till.calculateTotalCost(input));
+    }
+
+    @Test
     public void testCalculateTotalCost_1xorange() throws Exception {
         input = Arrays.asList("orange");
         assertEquals(new BigDecimal("0.25"),till.calculateTotalCost(input));
+    }
+
+    @Test
+    public void testCalculateTotalCost_2xorange() throws Exception {
+        input = Arrays.asList("orange","orange");
+        assertEquals(new BigDecimal("0.50"),till.calculateTotalCost(input));
+    }
+
+    @Test
+    public void testCalculateTotalCost_3xorange() throws Exception {
+        input = Arrays.asList("orange","orange","orange");
+        assertEquals(new BigDecimal("0.50"),till.calculateTotalCost(input));
+    }
+
+    @Test
+    public void testCalculateTotalCost_4xorange() throws Exception {
+        input = Arrays.asList("orange","orange","orange","orange");
+        assertEquals(new BigDecimal("0.75"),till.calculateTotalCost(input));
+    }
+
+    @Test
+    public void testCalculateTotalCost_5xorange() throws Exception {
+        input = Arrays.asList("orange","orange","orange","orange","orange");
+        assertEquals(new BigDecimal("1.00"),till.calculateTotalCost(input));
+    }
+
+    @Test
+    public void testCalculateTotalCost_6xorange() throws Exception {
+        input = Arrays.asList("orange","orange","orange","orange","orange","orange");
+        assertEquals(new BigDecimal("1.00"),till.calculateTotalCost(input));
     }
 
     @Test
@@ -47,6 +95,6 @@ public class TillTest {
     @Test
     public void testCalculateTotalCost_2xapple_3xorange() throws Exception {
         input = Arrays.asList("apple","orange","apple","orange","orange");
-        assertEquals(new BigDecimal("1.95"),till.calculateTotalCost(input));
+        assertEquals(new BigDecimal("1.10"),till.calculateTotalCost(input));
     }
 }
